@@ -1,5 +1,5 @@
 function solution(A, K) {
-    var array = A;
+    var array = A.slice();
     var times = K;
     var stack = [];
 
@@ -10,7 +10,7 @@ function solution(A, K) {
     while(times > 0){
       times -= 1;
       stack.push(array.pop());
-      array.unshift(stack.shift())
+      array.unshift(stack.shift());
     }
 
     return array;
