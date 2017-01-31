@@ -1,16 +1,27 @@
 var longestCommonPrefix = function(strs) {
+  if(!strs.length){
+    return "";
+  }else if(strs.length < 2){
+    return strs[0];
+  }
   var array = strs.concat().sort();
   var str1 = array[0];
   var str2 = array[array.length -1];
   var length;
+  var result = ""
 
-  str1.length > str2.length ? length = str1.length : length = str2.length;
-
+  str1.length >= str2.length ? length = str1.length : length = str2.length;
+  if(!length){
+    return "";
+  }
   for(var i = 0; i < length; i++){
-    if(str1[i] !== str2[i]){
-      return str1.slice(0, i);
+    if(str1[i] === str2[i]){
+      result += str1[i];
+    }else{
+      return result
     }
   }
+  return result
 };
 longestCommonPrefix(["geeksforgeeks", "geeks", "geek", "geezer", "gey"]);
 
